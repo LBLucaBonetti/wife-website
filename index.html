@@ -12,6 +12,60 @@
   </head>
 
   <body>
-    <h1>Hello, world!</h1>
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">Dott.ssa Marika Silvestri</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarLinks"
+          aria-controls="navbarLinks"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarLinks">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Chi sono</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Servizi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacts">Contatti</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header id="home">
+      <div class="container text-center">
+        <div class="row vh-100 justify-content-center align-items-center">
+          <div class="col">
+            <h1 class="display-4 text-primary text-uppercase user-select-none">
+              Marika Silvestri
+            </h1>
+            <h2 class="text-uppercase user-select-none">Psicologa</h2>
+            <a
+              class="btn btn-lg btn-outline-primary text-uppercase my-3"
+              href="#contacts"
+              >Contatti</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="about">ABOUT</section>
+    <section id="services">SERVICES</section>
+    <section id="contacts">CONTACTS</section>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
