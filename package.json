@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "My wife's website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run css",
+    "css": "npm-run-all css-compile css-prefix",
+    "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules scss/:css/",
+    "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",
+    "test": "npm-run-all css-lint css",
+    "css-lint": "stylelint scss/",
+    "start": "npm-run-all --parallel watch server",
+    "watch": "nodemon -e html,scss -x \"npm run css\"",
+    "server": "sirv --dev --no-clear --port 3000"
   },
   "repository": {
     "type": "git",
