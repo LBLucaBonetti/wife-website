@@ -10,3 +10,9 @@ $font-family-base: "Merriweather Sans", sans-serif;
 
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
+
+nav .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.5rem;
+}
