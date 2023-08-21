@@ -1,3 +1,12 @@
-// Import all of Bootstrap's CSS
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;800&display=swap");
 
+// Customizations
+$body-color: #14141f;
+$body-bg: #ebe7e7;
+$primary: #006cb5;
+$enable-rounded: false;
+$enable-button-pointers: false;
+$font-family-base: "Merriweather Sans", sans-serif;
+
+// Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
