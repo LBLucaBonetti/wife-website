@@ -1,3 +1,43 @@
-// Import all of Bootstrap's CSS
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap");
 
+// Customizations
+$body-color: #14141f;
+$body-bg: #ebe7e7;
+$primary: #006cb5;
+$enable-rounded: false;
+$enable-button-pointers: false;
+$font-family-base: "Merriweather Sans", sans-serif;
+
+// Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
+
+nav .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.5rem;
+}
+
+h1.quote {
+  font-family: "EB Garamond", serif;
+}
+
+p.lh-md {
+  line-height: 1.75;
+}
+
+a.text-whatsapp {
+  color: #128c7e;
+}
+
+.row.minh-100 {
+  min-height: 100vh;
+}
+
+nav.nav-scrolled-down {
+  background-color: white;
+}
+
+.navbar {
+  transition: all 0.5s;
+}
