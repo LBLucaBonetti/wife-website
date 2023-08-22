@@ -7,7 +7,6 @@
       name="description"
       content="La dottoressa Marika Silvestri, psicologa libero professionista a Modena, offre servizi di consulenza, sostegno psicologico, prevenzione e riabilitazione"
     />
-    <link rel="stylesheet" href="css/styles.css" />
     <title>Dott.ssa Marika Silvestri | Psicologa</title>
   </head>
 
@@ -70,13 +69,11 @@
         >
           <div class="col-lg align-self-center py-lg-3">
             <picture>
-              <!-- <source type="image/webp" srcset="img/marikasilvestri.webp" /> -->
-              <source type="image/jpeg" srcset="img/marikasilvestri.jpg" />
+              <!-- <source type="image/webp" id="about-img-src-webp" /> -->
+              <source type="image/jpeg" id="about-img-src-jpg" />
               <img
                 class="img-fluid rounded"
-                src="img/marikasilvestri.jpg"
-                loading="lazy"
-                decoding="async"
+                id="about-img"
                 alt="Marika Silvestri"
               />
             </picture>
@@ -339,6 +336,5 @@
         </script>
       </div>
     </footer>
-    <script type="module" src="js/main.js"></script>
   </body>
 </html>
