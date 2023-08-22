@@ -100,7 +100,39 @@
     <div id="separator" class="container"><hr /></div>
     <section id="services">SERVICES</section>
     <section id="contacts">CONTACTS</section>
-    <footer class="container">FOOTER</footer>
+    <footer class="container-fluid bg-dark p-5 mt-3">
+      <div
+        class="row align-items-center justify-content-center text-center text-light"
+      >
+        <small class="mb-1"
+          >Realizzato da
+          <a href="https://github.com/LBLucaBonetti">Luca Bonetti</a></small
+        >
+        <a
+          href="https://www.iubenda.com/privacy-policy/91394896"
+          class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"
+          title="Privacy Policy "
+          >Privacy Policy</a
+        >
+        <script type="text/javascript">
+          (function (w, d) {
+            var loader = function () {
+              var s = d.createElement("script"),
+                tag = d.getElementsByTagName("script")[0];
+              s.src = "https://cdn.iubenda.com/iubenda.js";
+              tag.parentNode.insertBefore(s, tag);
+            };
+            if (w.addEventListener) {
+              w.addEventListener("load", loader, false);
+            } else if (w.attachEvent) {
+              w.attachEvent("onload", loader);
+            } else {
+              w.onload = loader;
+            }
+          })(window, document);
+        </script>
+      </div>
+    </footer>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
