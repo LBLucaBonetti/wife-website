@@ -1,8 +1,5 @@
-// Import the Bootstrap bundle
-//
-// This includes Popper and all of Bootstrap's JS plugins.
-
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// Import our custom CSS
+import "../scss/styles.scss";
 
 //
 // Custom JS here
@@ -18,7 +15,16 @@ window.addEventListener("scroll", () => {
   }
 });
 
+import marikasilvestri from "../img/marikasilvestri.jpg";
+const aboutImgSrcJpg = document.getElementById("about-img-src-jpg");
+aboutImgSrcJpg.srcset = marikasilvestri;
+const aboutImg = document.getElementById("about-img");
+aboutImg.src = marikasilvestri;
+
+// Import only the Bootstrap components we need
+import { Popover } from "bootstrap";
+
 // Create an example popover
 document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
-  new bootstrap.Popover(popover);
+  new Popover(popover);
 });
