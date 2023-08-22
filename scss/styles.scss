@@ -30,6 +30,14 @@ a.text-whatsapp {
   color: #128c7e;
 }
 
-.row.mh-100 {
+.row.minh-100 {
   min-height: 100vh;
+}
+
+nav.nav-scrolled-down {
+  background-color: white;
+}
+
+.navbar {
+  transition: all 0.5s;
 }
