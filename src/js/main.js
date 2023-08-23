@@ -14,7 +14,6 @@ window.addEventListener("scroll", () => {
     nav.classList.remove(solidNavbarClassName);
   }
 });
-
 import home from "../img/home.jpg";
 import homeWebp from "../img/home.webp";
 import homeMd from "../img/home-md.jpg";
@@ -60,6 +59,37 @@ const couplesImg = document.getElementById("couples-img");
 couplesImg.src = couples;
 const perinatalImg = document.getElementById("perinatal-img");
 perinatalImg.src = perinatal;
+document.querySelectorAll(".nav-link").forEach((navLink) => {
+  navLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = e.target.getAttribute("href");
+    scrollToTarget(target);
+    // Set this active and remove other active states
+    document.querySelector(".active")?.classList.remove("active");
+    navLink.classList.add("active");
+    const navbarToggler = document.querySelector("button.navbar-toggler");
+    if (
+      navbarToggler &&
+      window.getComputedStyle(navbarToggler, null).display !== "none"
+    ) {
+      navbarToggler.click();
+    }
+  });
+});
+document.getElementById("call-to-action").addEventListener("click", (e) => {
+  e.preventDefault();
+  const target = e.target.getAttribute("href");
+  scrollToTarget(target);
+  document.querySelector(".active")?.classList.remove("active");
+  document.getElementById("contacts-nav").classList.add("active");
+});
+function scrollToTarget(target) {
+  if (!target) {
+    return;
+  }
+  const targetElement = document.querySelector(target);
+  targetElement.scrollIntoView();
+}
 
 // Import only the Bootstrap components we need
 import { Popover } from "bootstrap";
