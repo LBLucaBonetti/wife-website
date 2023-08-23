@@ -46,6 +46,20 @@ const aboutImgSrcJpg = document.getElementById("about-img-src-jpg");
 aboutImgSrcJpg.srcset = marikasilvestri;
 const aboutImg = document.getElementById("about-img");
 aboutImg.src = marikasilvestri;
+import adults from "../img/adults.jpg";
+import childrenAndTeenagers from "../img/children-and-teenagers.jpg";
+import couples from "../img/couples.jpg";
+import perinatal from "../img/perinatal.jpg";
+const adultsImg = document.getElementById("adults-img");
+adultsImg.src = adults;
+const childrenAndTeenagersImg = document.getElementById(
+  "children-and-teenagers-img"
+);
+childrenAndTeenagersImg.src = childrenAndTeenagers;
+const couplesImg = document.getElementById("couples-img");
+couplesImg.src = couples;
+const perinatalImg = document.getElementById("perinatal-img");
+perinatalImg.src = perinatal;
 
 // Import only the Bootstrap components we need
 import { Popover } from "bootstrap";
