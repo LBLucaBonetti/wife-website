@@ -8,11 +8,25 @@ const solidNavbarClassName = "nav-scrolled-down";
 const yPositionForSolidNavbar = 60;
 const nav = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
+  // Solid navbar
   if (window.scrollY >= yPositionForSolidNavbar) {
     nav.classList.add(solidNavbarClassName);
   } else if (window.scrollY < yPositionForSolidNavbar) {
     nav.classList.remove(solidNavbarClassName);
   }
+  // Activate correct section link
+  let currentSection = "home-nav";
+  document.querySelectorAll("section").forEach((section) => {
+    if (window.scrollY >= section.offsetTop - section.clientHeight / 5) {
+      currentSection = section.id + "-nav";
+    }
+  });
+  document.querySelectorAll(".nav-link").forEach((navLink) => {
+    if (navLink.getAttribute("id") === currentSection) {
+      document.querySelector(".active")?.classList.remove("active");
+      navLink.classList.add("active");
+    }
+  });
 });
 import home from "../img/home.jpg";
 import homeWebp from "../img/home.webp";
@@ -64,9 +78,6 @@ document.querySelectorAll(".nav-link").forEach((navLink) => {
     e.preventDefault();
     const target = e.target.getAttribute("href");
     scrollToTarget(target);
-    // Set this active and remove other active states
-    document.querySelector(".active")?.classList.remove("active");
-    navLink.classList.add("active");
     const navbarToggler = document.querySelector("button.navbar-toggler");
     if (
       navbarToggler &&
@@ -80,8 +91,6 @@ document.getElementById("call-to-action").addEventListener("click", (e) => {
   e.preventDefault();
   const target = e.target.getAttribute("href");
   scrollToTarget(target);
-  document.querySelector(".active")?.classList.remove("active");
-  document.getElementById("contacts-nav").classList.add("active");
 });
 function scrollToTarget(target) {
   if (!target) {
