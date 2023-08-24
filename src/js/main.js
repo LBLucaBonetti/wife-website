@@ -7,13 +7,21 @@ import "../scss/styles.scss";
 const solidNavbarClassName = "nav-scrolled-down";
 const yPositionForSolidNavbar = 60;
 const nav = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
-  // Solid navbar
+function checkSolidNavbar() {
+  if (window.innerHeight < 700) {
+    nav.classList.add(solidNavbarClassName);
+    return;
+  }
   if (window.scrollY >= yPositionForSolidNavbar) {
     nav.classList.add(solidNavbarClassName);
-  } else if (window.scrollY < yPositionForSolidNavbar) {
+  } else {
     nav.classList.remove(solidNavbarClassName);
   }
+}
+checkSolidNavbar();
+window.onresize = checkSolidNavbar;
+window.addEventListener("scroll", () => {
+  checkSolidNavbar();
   // Activate correct section link
   let currentSection = "home-nav";
   document.querySelectorAll("section").forEach((section) => {
