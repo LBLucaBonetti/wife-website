@@ -57,8 +57,16 @@ img.home-img {
   opacity: 0.4;
 }
 
+section {
+  scroll-margin: 72px;
+}
+
 @media screen and (max-width: 357px) {
   #navbar-container {
     justify-content: center;
+  }
+
+  section {
+    scroll-margin: 112px;
   }
 }
