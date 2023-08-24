@@ -2,6 +2,7 @@
 
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -22,6 +23,7 @@ module.exports = {
       template: "./src/index.html",
       favicon: "./src/favicon.ico",
     }),
+    new CompressionPlugin(),
   ],
   module: {
     rules: [
