@@ -25,7 +25,11 @@ window.addEventListener("scroll", () => {
   // Activate correct section link
   let currentSection = "home-nav";
   document.querySelectorAll("section").forEach((section) => {
-    if (window.scrollY >= section.offsetTop - section.clientHeight / 5) {
+    const offset =
+      window.innerWidth >= 357
+        ? section.offsetTop - 72
+        : section.offsetTop - 112;
+    if (window.scrollY >= offset) {
       currentSection = section.id + "-nav";
     }
   });
