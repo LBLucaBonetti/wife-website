@@ -81,6 +81,21 @@ const couplesImg = document.getElementById("couples-img");
 couplesImg.src = couples;
 const perinatalImg = document.getElementById("perinatal-img");
 perinatalImg.src = perinatal;
+import whatsapp from "../img/whatsapp.svg";
+import email from "../img/email.svg";
+import telephone from "../img/telephone.svg";
+import facebook from "../img/facebook.svg";
+import instagram from "../img/instagram.svg";
+const whatsappImg = document.getElementById("whatsapp-img");
+const emailImg = document.getElementById("email-img");
+const telephoneImg = document.getElementById("telephone-img");
+const facebookImg = document.getElementById("facebook-img");
+const instagramImg = document.getElementById("instagram-img");
+whatsappImg.src = whatsapp;
+emailImg.src = email;
+telephoneImg.src = telephone;
+facebookImg.src = facebook;
+instagramImg.src = instagram;
 document.querySelectorAll(".nav-link").forEach((navLink) => {
   navLink.addEventListener("click", (e) => {
     e.preventDefault();
