@@ -124,7 +124,11 @@ function scrollToTarget(target) {
     return;
   }
   const targetElement = document.querySelector(target);
-  targetElement.scrollIntoView();
+  const headerOffset = window.innerWidth >= 357 ? 72 : 112;
+  window.scrollTo({
+    top:
+      targetElement.getBoundingClientRect().top + window.scrollY - headerOffset,
+  });
 }
 
 // Import only the Bootstrap components we need
