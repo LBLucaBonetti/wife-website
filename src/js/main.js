@@ -5,9 +5,10 @@ import "../scss/styles.scss";
 // Custom JS here
 //
 const solidNavbarClassName = "nav-scrolled-down";
-const yPositionForSolidNavbar = 60;
+const yPositionForSolidNavbar = 60; // Arbitrary
 const nav = document.getElementById("navbar");
 function checkSolidNavbar() {
+  // If the height is under 700, when opening the transparent menu we see links over the home screen so we need to avoid that situation
   if (window.innerHeight < 700) {
     nav.classList.add(solidNavbarClassName);
     return;
@@ -25,6 +26,7 @@ window.addEventListener("scroll", () => {
   // Activate correct section link
   let currentSection = "home-nav";
   document.querySelectorAll("section").forEach((section) => {
+    // If the width is >= 357, the navbar height is 72; under 357 it wraps the hamburger on a new line and its height becomes 112
     const offset =
       window.innerWidth >= 357
         ? section.offsetTop - 72
@@ -53,6 +55,7 @@ function changeHomeImg() {
   let imgToSet = homeSm;
   let imgToSetWebp = homeSmWebp;
   const width = window.innerWidth;
+  // The following width sizes are calculated on the jpg sizes to display them properly
   if (width >= 576 && width <= 1024) {
     imgToSet = homeMd;
     imgToSetWebp = homeMdWebp;
@@ -124,6 +127,7 @@ function scrollToTarget(target) {
     return;
   }
   const targetElement = document.querySelector(target);
+  // See previous comment on navbar height
   const headerOffset = window.innerWidth >= 357 ? 72 : 112;
   window.scrollTo({
     top:
@@ -132,9 +136,9 @@ function scrollToTarget(target) {
 }
 
 // Import only the Bootstrap components we need
-import { Popover } from "bootstrap";
+//import { Popover } from "bootstrap";
 
 // Create an example popover
-document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
-  new Popover(popover);
-});
+//document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
+//  new Popover(popover);
+//});
