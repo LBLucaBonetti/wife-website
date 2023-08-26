@@ -5,9 +5,10 @@ import "../scss/styles.scss";
 // Custom JS here
 //
 const solidNavbarClassName = "nav-scrolled-down";
-const yPositionForSolidNavbar = 60;
+const yPositionForSolidNavbar = 60; // Arbitrary
 const nav = document.getElementById("navbar");
 function checkSolidNavbar() {
+  // If the height is under 700, when opening the transparent menu we see links over the home screen so we need to avoid that situation
   if (window.innerHeight < 700) {
     nav.classList.add(solidNavbarClassName);
     return;
@@ -25,7 +26,12 @@ window.addEventListener("scroll", () => {
   // Activate correct section link
   let currentSection = "home-nav";
   document.querySelectorAll("section").forEach((section) => {
-    if (window.scrollY >= section.offsetTop - section.clientHeight / 5) {
+    // If the width is >= 357, the navbar height is 72; under 357 it wraps the hamburger on a new line and its height becomes 112
+    const offset =
+      window.innerWidth >= 357
+        ? section.offsetTop - 72
+        : section.offsetTop - 112;
+    if (window.scrollY >= offset) {
       currentSection = section.id + "-nav";
     }
   });
@@ -49,6 +55,7 @@ function changeHomeImg() {
   let imgToSet = homeSm;
   let imgToSetWebp = homeSmWebp;
   const width = window.innerWidth;
+  // The following width sizes are calculated on the jpg sizes to display them properly
   if (width >= 576 && width <= 1024) {
     imgToSet = homeMd;
     imgToSetWebp = homeMdWebp;
@@ -81,6 +88,21 @@ const couplesImg = document.getElementById("couples-img");
 couplesImg.src = couples;
 const perinatalImg = document.getElementById("perinatal-img");
 perinatalImg.src = perinatal;
+import whatsapp from "../img/whatsapp.svg";
+import email from "../img/email.svg";
+import telephone from "../img/telephone.svg";
+import facebook from "../img/facebook.svg";
+import instagram from "../img/instagram.svg";
+const whatsappImg = document.getElementById("whatsapp-img");
+const emailImg = document.getElementById("email-img");
+const telephoneImg = document.getElementById("telephone-img");
+const facebookImg = document.getElementById("facebook-img");
+const instagramImg = document.getElementById("instagram-img");
+whatsappImg.src = whatsapp;
+emailImg.src = email;
+telephoneImg.src = telephone;
+facebookImg.src = facebook;
+instagramImg.src = instagram;
 document.querySelectorAll(".nav-link").forEach((navLink) => {
   navLink.addEventListener("click", (e) => {
     e.preventDefault();
@@ -105,7 +127,12 @@ function scrollToTarget(target) {
     return;
   }
   const targetElement = document.querySelector(target);
-  targetElement.scrollIntoView();
+  // See previous comment on navbar height
+  const headerOffset = window.innerWidth >= 357 ? 72 : 112;
+  window.scrollTo({
+    top:
+      targetElement.getBoundingClientRect().top + window.scrollY - headerOffset,
+  });
 }
 
 // Import only the Bootstrap components we need
