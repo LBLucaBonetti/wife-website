@@ -22,7 +22,13 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: "./src/index.html",
+      favicon: "./src/favicon.ico",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "404.html",
+      template: "./src/404.html",
       favicon: "./src/favicon.ico",
     }),
     new CompressionPlugin(),
