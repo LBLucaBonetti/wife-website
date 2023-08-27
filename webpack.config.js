@@ -3,6 +3,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
@@ -19,6 +20,7 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       favicon: "./src/favicon.ico",
@@ -34,6 +36,7 @@ module.exports = {
             // Adds CSS to the DOM by injecting a `<style>` tag
             loader: "style-loader",
           },
+          MiniCssExtractPlugin.loader,
           {
             // Interprets `@import` and `url()` like `import/require()` and will resolve them
             loader: "css-loader",
