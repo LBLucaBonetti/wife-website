@@ -20,28 +20,16 @@ function checkSolidNavbar() {
   }
 }
 checkSolidNavbar();
-window.onresize = checkSolidNavbar;
-window.addEventListener("scroll", () => {
+function checkOnResize() {
   checkSolidNavbar();
-  // Activate correct section link
-  let currentSection = "home-nav";
-  document.querySelectorAll("section").forEach((section) => {
-    // If the width is >= 357, the navbar height is 72; under 357 it wraps the hamburger on a new line and its height becomes 112
-    const offset =
-      window.innerWidth >= 357
-        ? section.offsetTop - 72
-        : section.offsetTop - 112;
-    if (window.scrollY >= offset) {
-      currentSection = section.id + "-nav";
-    }
-  });
-  document.querySelectorAll(".nav-link").forEach((navLink) => {
-    if (navLink.getAttribute("id") === currentSection) {
-      document.querySelector(".active")?.classList.remove("active");
-      navLink.classList.add("active");
-    }
-  });
-});
+}
+function checkOnScroll() {
+  checkSolidNavbar();
+  changeHomeImg();
+}
+window.onresize = checkOnResize;
+window.onscroll = checkOnScroll;
+
 import home from "../img/home.jpg";
 import homeWebp from "../img/home.webp";
 import homeMd from "../img/home-md.jpg";
@@ -68,7 +56,7 @@ function changeHomeImg() {
   homeImg.src = imgToSet;
 }
 changeHomeImg();
-window.addEventListener("resize", changeHomeImg);
+
 import marikasilvestri from "../img/marikasilvestri.jpg";
 const aboutImgSrcJpg = document.getElementById("about-img-src-jpg");
 aboutImgSrcJpg.srcset = marikasilvestri;
@@ -105,9 +93,6 @@ facebookImg.src = facebook;
 instagramImg.src = instagram;
 document.querySelectorAll(".nav-link").forEach((navLink) => {
   navLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = e.target.getAttribute("href");
-    scrollToTarget(target);
     const navbarToggler = document.querySelector("button.navbar-toggler");
     if (
       navbarToggler &&
@@ -117,23 +102,6 @@ document.querySelectorAll(".nav-link").forEach((navLink) => {
     }
   });
 });
-document.getElementById("call-to-action").addEventListener("click", (e) => {
-  e.preventDefault();
-  const target = e.target.getAttribute("href");
-  scrollToTarget(target);
-});
-function scrollToTarget(target) {
-  if (!target) {
-    return;
-  }
-  const targetElement = document.querySelector(target);
-  // See previous comment on navbar height
-  const headerOffset = window.innerWidth >= 357 ? 72 : 112;
-  window.scrollTo({
-    top:
-      targetElement.getBoundingClientRect().top + window.scrollY - headerOffset,
-  });
-}
 
 // Import only the Bootstrap components we need
 import { Popover } from "bootstrap";
