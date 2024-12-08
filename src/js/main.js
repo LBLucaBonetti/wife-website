@@ -4,11 +4,11 @@ import "../scss/styles.scss";
 //
 // Custom JS here
 //
-import onResize from "./on-resize";
-import onScroll from "./on-scroll";
-import checkSolidNavbar from "./checkSolidNavbar";
-import changeHomeImg from "./changeHomeImg";
-import { setImgSrc, setImgSrcset } from "./setImg";
+import onResize from "./on-resize.js";
+import onScroll from "./on-scroll.js";
+import checkSolidNavbar from "./checkSolidNavbar.js";
+import changeHomeImg from "./changeHomeImg.js";
+import { setImgSrc, setImgSrcset } from "./setImg.js";
 import marikasilvestri from "../img/marikasilvestri.jpg";
 import adults from "../img/adults.jpg";
 import childrenAndTeenagers from "../img/children-and-teenagers.jpg";
