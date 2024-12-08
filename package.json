@@ -2,6 +2,7 @@
   "name": "wife-website",
   "version": "1.0.0",
   "description": "My wife's website",
+  "type": "module",
   "scripts": {
     "build": "webpack build --mode=production",
     "start": "webpack serve",
